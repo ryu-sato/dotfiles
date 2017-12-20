@@ -8,5 +8,6 @@ done
 DOTFILES=$(find `pwd` -maxdepth 1 -type f $FINDOPTS)
 
 for F in $DOTFILES; do
+  echo "installing ... ${F}"
   ln -sf ${F} ${HOME}/${val}
 done

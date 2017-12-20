@@ -22,4 +22,5 @@ set list
 syntax on
 " 挿入中に改行を削除できるようにする
 set backspace=1
-
+" Use pathogen
+execute pathogen#infect()

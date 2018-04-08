@@ -12,3 +12,12 @@ $ cd dotfiles
 $ ./install.sh
 ```
 
+## Optional Install
+
+pathogen.vim
+
+
+```
+$ cd dotfiles
+$ ./install-pathogen.sh
+```

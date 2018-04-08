@@ -23,4 +23,7 @@ syntax on
 " 挿入中に改行を削除できるようにする
 set backspace=1
 " Use pathogen
-execute pathogen#infect()
+"   ref. https://superuser.com/questions/552323/how-can-i-test-for-plugins-and-only-include-them-if-they-exist-in-vimrc
+if !empty(glob("~/.vim/autoload/pathogen.vim"))
+  execute pathogen#infect()
+endif

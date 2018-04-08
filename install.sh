@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-EXCLUDES=".git .gitignore README.md install.sh"
+EXCLUDES=".git .gitignore README.md install.sh install-pathogen.sh"
 FINDOPTS=
 for F in $EXCLUDES; do
   FINDOPTS+=" ! -name $F"

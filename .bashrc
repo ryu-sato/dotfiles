@@ -88,6 +88,7 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
+alias ls='ls --color'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -124,4 +125,6 @@ KERNEL=$(uname -r | sed -e 's/^[0-9.\-]\+//')
 if [ "$KERNEL" == "Microsoft" ]; then
   export DOCKER_HOST='tcp://0.0.0.0:2375'
 fi
+# [Kubernetes in Docker for Windows]
+alias kubectl='/mnt/c/Program\ Files/Docker/Docker/resources/bin/kubectl.exe'
 

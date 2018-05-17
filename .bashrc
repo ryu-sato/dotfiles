@@ -117,14 +117,3 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Settings for Docker
-# [Docker for Windows]
-#   Use docker for windows in WSL bash
-#   cf. https://qiita.com/yoichiwo7/items/0b2aaa3a8c26ce8e87fe
-KERNEL=$(uname -r | sed -e 's/^[0-9.\-]\+//')
-if [ "$KERNEL" == "Microsoft" ]; then
-  export DOCKER_HOST='tcp://0.0.0.0:2375'
-fi
-# [Kubernetes in Docker for Windows]
-alias kubectl='/mnt/c/Program\ Files/Docker/Docker/resources/bin/kubectl.exe'
-

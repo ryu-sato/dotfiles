@@ -1,3 +1,10 @@
 [user]
 	name = Ryu Sato
 	email = ryu@weseek.co.jp
+
+#[url "https://"]
+#    insteadOf = git://
+
+[alias]
+    graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
+

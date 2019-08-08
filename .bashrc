@@ -140,13 +140,20 @@ else
     echo "no ssh-agent"
 fi
 
-# alias of Kubernetes
+# Kubernetes
 if [ -n "$(which kubectl)" ]; then
   alias k='kubectl'
+  source <(kubectl completion bash)
 fi
 
-# kubectx and kubens
+# kubectx and kubens(https://github.com/ahmetb/kubectx)
 if [ -d ~/.kubectx ]; then
   export PATH=~/.kubectx:$PATH
+fi
+
+# kubeps(https://github.com/jonmosco/kube-ps1)
+if [ -d ~/kube-ps1 ]; then
+  source ~/kube-ps1/kube-ps1.sh
+  PS1='[\u@\h \W $(kube_ps1)]\$ '
 fi
 

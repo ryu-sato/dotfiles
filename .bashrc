@@ -140,3 +140,13 @@ else
     echo "no ssh-agent"
 fi
 
+# alias of Kubernetes
+if [ -n "$(which kubectl)" ]; then
+  alias k='kubectl'
+fi
+
+# kubectx and kubens
+if [ -d ~/.kubectx ]; then
+  export PATH=~/.kubectx:$PATH
+fi
+

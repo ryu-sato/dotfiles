@@ -155,6 +155,7 @@ fi
 if [ -d ~/kube-ps1 ]; then
   source ~/kube-ps1/kube-ps1.sh
   PS1='[\u@\h \W $(kube_ps1)]\$ '
+  kubeoff
 fi
 
 # pyenv

@@ -88,7 +88,6 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-alias ls='ls --color'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -116,6 +115,8 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+
 
 # Settings for Docker
 # [Docker for Windows]
@@ -152,9 +153,9 @@ if [ -d ~/.kubectx ]; then
 fi
 
 # kubeps(https://github.com/jonmosco/kube-ps1)
-if [ -d ~/kube-ps1 ]; then
-  source ~/kube-ps1/kube-ps1.sh
-  PS1='[\u@\h \W $(kube_ps1)]\$ '
+if [ -d ~/.kube-ps1 ]; then
+  source ~/.kube-ps1/kube-ps1.sh
+  PS1='\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] $(kube_ps1)\$ '
   kubeoff
 fi
 

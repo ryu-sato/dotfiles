@@ -144,6 +144,7 @@ fi
 # Kubernetes
 if [ -n "$(which kubectl)" ]; then
   alias k='kubectl'
+  complete -F __start_kubectl k
   source <(kubectl completion bash)
 fi
 

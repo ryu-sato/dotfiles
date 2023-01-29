@@ -15,3 +15,13 @@
 	textconv = sops -d
 [push]
 	default = simple
+
+[diff "sopsdiffer"]
+	textconv = sops -d
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+

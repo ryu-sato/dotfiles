@@ -9,6 +9,6 @@ hardstatus	on
 autodetach	on
 startup_message	off
 escape		^t^t
-defscrollback	5000
+defscrollback	100000
 vbell		off
 termcapinfo xterm 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'

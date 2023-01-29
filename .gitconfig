@@ -1,6 +1,7 @@
 [user]
 	name = Ryu Sato
 	email = ryu@weseek.co.jp
+	filemode = true
 
 #[url "https://"]
 #    insteadOf = git://

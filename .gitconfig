@@ -8,3 +8,10 @@
 [alias]
     graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
 
+[http]
+    sslVerify = false
+
+[diff "sopsdiffer"]
+	textconv = sops -d
+[push]
+	default = simple

@@ -117,6 +117,8 @@ if ! shopt -oq posix; then
 fi
 
 
+# portable binaryes
+export PATH="$HOME/.bin:$PATH"
 
 # Settings for Docker
 # [Docker for Windows]
@@ -156,7 +158,7 @@ fi
 # kubeps(https://github.com/jonmosco/kube-ps1)
 if [ -d ~/.kube-ps1 ]; then
   source ~/.kube-ps1/kube-ps1.sh
-  PS1='\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] $(kube_ps1)\$ '
+  PS1='\[\e]0;\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] $(kube_ps1)\$ '
   kubeoff
 fi
 
@@ -171,5 +173,11 @@ fi
 if [ -d ~/.asdf ]; then
   . $HOME/.asdf/asdf.sh
   . $HOME/.asdf/completions/asdf.bash
+fi
+
+# golang
+if [ -n "$(which go)" ]; then
+  export GOPATH="$HOME/.gopath"
+  export PATH="$HOME/.gopath/bin:$PATH"
 fi
 

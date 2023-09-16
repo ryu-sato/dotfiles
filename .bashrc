@@ -146,6 +146,7 @@ else
     echo "no ssh-agent"
 fi
 # wsl2-ssh-pagent
+# https://github.com/BlackReloaded/wsl2-ssh-pageant
 if [ -f "$HOME/.ssh/wsl2-ssh-pageant.exe" ]; then
   export SSH_AUTH_SOCK="$HOME/.ssh/agent.sock"
   if ! ss -a | grep -q "$SSH_AUTH_SOCK"; then

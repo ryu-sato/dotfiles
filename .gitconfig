@@ -4,6 +4,7 @@
 [user]
 	name = Ryu Sato
 	email = ryu@weseek.co.jp
+	filemode = true
 
 #[url "https://"]
 #    insteadOf = git://
@@ -26,3 +27,5 @@
 [credential "https://gist.github.com"]
 	helper = !/usr/bin/gh auth git-credential
 
+[pull]
+	rebase = false

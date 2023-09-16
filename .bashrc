@@ -16,7 +16,7 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
+HISTSIZE=100000
 HISTFILESIZE=2000
 
 # check the window size after each command and, if necessary,
@@ -135,7 +135,10 @@ agent="$HOME/.ssh/agent"
 if [ -S "$SSH_AUTH_SOCK" ]; then
     case $SSH_AUTH_SOCK in
     /tmp/*/agent.[0-9]*)
-        ln -snf "$SSH_AUTH_SOCK" $agent && export SSH_AUTH_SOCK=$agent
+        ln -snf "$SSH_AUTH_SOCK" $agent && export SSH_AUTH_SOCK=$agent ;;
+    /run/user/*)
+        # VSCode からの接続の場合は何もしない
+        ;;
     esac
 elif [ -S $agent ]; then
     export SSH_AUTH_SOCK=$agent
@@ -143,6 +146,7 @@ else
     echo "no ssh-agent"
 fi
 # wsl2-ssh-pagent
+# https://github.com/BlackReloaded/wsl2-ssh-pageant
 if [ -f "$HOME/.ssh/wsl2-ssh-pageant.exe" ]; then
   export SSH_AUTH_SOCK="$HOME/.ssh/agent.sock"
   if ! ss -a | grep -q "$SSH_AUTH_SOCK"; then

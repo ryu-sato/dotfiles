@@ -209,3 +209,7 @@ if [ -f "$HOME/work/google-cloud-sdk/completion.bash.inc" ]; then
   . "$HOME/work/google-cloud-sdk/completion.bash.inc";
 fi
 
+# override
+if [ -f "$HOME/.bashrc.local" ]; then
+  . $HOME/.bashrc.local
+fi

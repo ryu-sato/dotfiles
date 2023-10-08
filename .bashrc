@@ -164,7 +164,7 @@ else
 fi
 
 # Kubernetes
-if [ -n "$(which kubectl)" ]; then
+if [ "$(which kubectl 2>&1 > /dev/null)" -a $? = 0 ]; then
   alias k='kubectl'
   complete -F __start_kubectl k
   source <(kubectl completion bash)
@@ -196,7 +196,7 @@ if [ -d ~/.asdf ]; then
 fi
 
 # golang
-if [ -n "$(which go)" ]; then
+if [ "$(which go 2>&1 > /dev/null)" -a $? = 0 ]; then
   export GOPATH="$HOME/.gopath"
   export PATH="$HOME/.gopath/bin:$PATH"
 fi
@@ -214,3 +214,7 @@ if [ -f "$HOME/.pulumi/bin/pulumi" ]; then
   export PATH=$PATH:$HOME/.pulumi/bin
 fi
 
+# override
+if [ -f "$HOME/.bashrc.local" ]; then
+  . $HOME/.bashrc.local
+fi

@@ -209,3 +209,8 @@ if [ -f "$HOME/work/google-cloud-sdk/completion.bash.inc" ]; then
   . "$HOME/work/google-cloud-sdk/completion.bash.inc";
 fi
 
+# add Pulumi to the PATH
+if [ -f "$HOME/.pulumi/bin/pulumi" ]; then
+  export PATH=$PATH:$HOME/.pulumi/bin
+fi
+

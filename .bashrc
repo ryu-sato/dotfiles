@@ -213,3 +213,9 @@ fi
 if [ -f "$HOME/.bashrc.local" ]; then
   . $HOME/.bashrc.local
 fi
+
+# krew
+if [ -d "$HOME/.krew" ]; then
+  export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+fi
+

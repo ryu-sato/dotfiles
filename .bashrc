@@ -164,7 +164,7 @@ else
 fi
 
 # Kubernetes
-if [ "$(which kubectl 2>&1 > /dev/null)" -a $? = 0 ]; then
+if [ -n "$(which kubectl)" -a $? = 0 ]; then
   alias k='kubectl'
   complete -F __start_kubectl k
   source <(kubectl completion bash)

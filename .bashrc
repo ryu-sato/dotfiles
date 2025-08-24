@@ -119,6 +119,9 @@ fi
 
 # portable binaryes
 export PATH="$HOME/.bin:$PATH"
+if [ -f "$HOME/.bin/add_path.bash" ]; then
+  . $HOME/.bin/add_path.bash
+fi
 
 # Settings for Docker
 # [Docker for Windows]
@@ -191,8 +194,17 @@ fi
 
 # asdf
 if [ -d ~/.asdf ]; then
-  . $HOME/.asdf/asdf.sh
-  . $HOME/.asdf/completions/asdf.bash
+  # before version 0.16.0
+  files=(
+    "$HOME/.asdf/asdf.sh"
+    "$HOME/.asdf/completions/asdf.bash"
+  )
+  for shell in "${files[@]}"; do
+    if [ -f $shell ]; then
+      . $shell
+    fi
+  done
+  export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 fi
 
 # golang

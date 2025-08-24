@@ -156,7 +156,11 @@ if [ -f "$HOME/.ssh/wsl2-ssh-pageant.exe" ]; then
     rm -f "$SSH_AUTH_SOCK"
     wsl2_ssh_pageant_bin="$HOME/.ssh/wsl2-ssh-pageant.exe"
     if test -x "$wsl2_ssh_pageant_bin"; then
-      (setsid nohup socat UNIX-LISTEN:"$SSH_AUTH_SOCK,fork" EXEC:"$wsl2_ssh_pageant_bin" >/dev/null 2>&1 &)
+      if test -x "socat"; then
+        (setsid nohup socat UNIX-LISTEN:"$SSH_AUTH_SOCK,fork" EXEC:"$wsl2_ssh_pageant_bin" >/dev/null 2>&1 &)
+      else
+        echo >&2 "WARNING: socat is not executable."
+      fi
     else
       echo >&2 "WARNING: $wsl2_ssh_pageant_bin is not executable."
     fi
@@ -236,3 +240,9 @@ if [ -d "$HOME/.krew" ]; then
   export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 fi
 
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/ryu/google-cloud-sdk/path.bash.inc' ]; then . '/home/ryu/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/ryu/google-cloud-sdk/completion.bash.inc' ]; then . '/home/ryu/google-cloud-sdk/completion.bash.inc'; fi

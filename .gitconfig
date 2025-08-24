@@ -29,3 +29,7 @@
 
 [pull]
 	rebase = false
+[credential]
+	helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
+[safe]
+	directory = /home/ryu/Project/jpnap-dev/jpnap-reusable-github-actions

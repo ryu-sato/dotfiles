@@ -246,3 +246,9 @@ if [ -f '/home/ryu/google-cloud-sdk/path.bash.inc' ]; then . '/home/ryu/google-c
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/ryu/google-cloud-sdk/completion.bash.inc' ]; then . '/home/ryu/google-cloud-sdk/completion.bash.inc'; fi
+
+# custom profile
+if [ -f '~/.bashrc.local' ]; then
+  . ~/.bashrc.local
+fi
+

@@ -1,5 +1,6 @@
 [core]
 	filemode = true
+	autocrlf = false
 
 [user]
 	name = Ryu Sato

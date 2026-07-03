@@ -198,10 +198,6 @@ fi
 
 # asdf
 if [ -d ~/.asdf ]; then
-<<<<<<< HEAD
-  export ASDF_DATA_DIR=/home/ryu/.asdf
-  export PATH="$ASDF_DATA_DIR/shims:$PATH"
-=======
   # before version 0.16.0
   files=(
     "$HOME/.asdf/asdf.sh"
@@ -213,7 +209,6 @@ if [ -d ~/.asdf ]; then
     fi
   done
   export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
->>>>>>> 0269c17e07aaf507014514db0565b998f7edd489
 fi
 
 # golang

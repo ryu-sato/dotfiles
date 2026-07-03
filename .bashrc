@@ -119,6 +119,9 @@ fi
 
 # portable binaryes
 export PATH="$HOME/.bin:$PATH"
+if [ -f "$HOME/.bin/add_path.bash" ]; then
+  . $HOME/.bin/add_path.bash
+fi
 
 # Settings for Docker
 # [Docker for Windows]
@@ -153,7 +156,7 @@ if [ -f "$HOME/.ssh/wsl2-ssh-pageant.exe" ]; then
     rm -f "$SSH_AUTH_SOCK"
     wsl2_ssh_pageant_bin="$HOME/.ssh/wsl2-ssh-pageant.exe"
     if test -x "$wsl2_ssh_pageant_bin"; then
-      if test -x $(which socat); then
+      if test -x "$(which socat)"; then
         (setsid nohup socat UNIX-LISTEN:"$SSH_AUTH_SOCK,fork" EXEC:"$wsl2_ssh_pageant_bin" >/dev/null 2>&1 &)
       else
         echo >&2 "WARNING: socat is not executable."
@@ -195,8 +198,22 @@ fi
 
 # asdf
 if [ -d ~/.asdf ]; then
+<<<<<<< HEAD
   export ASDF_DATA_DIR=/home/ryu/.asdf
   export PATH="$ASDF_DATA_DIR/shims:$PATH"
+=======
+  # before version 0.16.0
+  files=(
+    "$HOME/.asdf/asdf.sh"
+    "$HOME/.asdf/completions/asdf.bash"
+  )
+  for shell in "${files[@]}"; do
+    if [ -f $shell ]; then
+      . $shell
+    fi
+  done
+  export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+>>>>>>> 0269c17e07aaf507014514db0565b998f7edd489
 fi
 
 # golang
@@ -234,3 +251,9 @@ if [ -f '/home/ryu/google-cloud-sdk/path.bash.inc' ]; then . '/home/ryu/google-c
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/ryu/google-cloud-sdk/completion.bash.inc' ]; then . '/home/ryu/google-cloud-sdk/completion.bash.inc'; fi
+
+# custom profile
+if [ -f '~/.bashrc.local' ]; then
+  . ~/.bashrc.local
+fi
+

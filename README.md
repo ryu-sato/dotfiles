@@ -14,10 +14,18 @@ $ ./install.sh
 
 ## Optional Install
 
-pathogen.vim
+### pathogen.vim
 
 
 ```
 $ cd dotfiles
 $ ./install-pathogen.sh
 ```
+
+### VSCode
+
+1. Open VSCode
+2. (Side Bar) Manage => Profile -> Profiles
+3. Import Profiles...
+4. Select file dotfiles/.config/vscode/Terminal.code-profile
+
